@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cleber-transporte-v3';
+const CACHE_NAME = 'cleber-transporte-v4';
 const ASSETS = [
   './',
   './index.html',
