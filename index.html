@@ -88,9 +88,22 @@
               <div class="field"><label for="passengers">Quantidade de pessoas</label><select id="passengers" name="passengers" required><option value="1">1 pessoa</option><option value="2">2 pessoas</option><option value="3">3 pessoas</option><option value="4">4 pessoas — limite do veículo</option></select></div>
             </div>
 
-            <div class="row">
-              <div class="field"><label for="tripDate">Data da viagem</label><input id="tripDate" name="tripDate" type="date" /><small>Para viagem agora, pode deixar em branco.</small></div>
-              <div class="field"><label for="tripTime">Horário</label><input id="tripTime" name="tripTime" type="time" /><small>Informe se quiser agendar.</small></div>
+            <div class="field">
+              <label>Data da viagem</label>
+              <div class="row-3">
+                <select id="tripDay" name="tripDay" aria-label="Dia"><option value="">Dia</option></select>
+                <select id="tripMonth" name="tripMonth" aria-label="Mês"><option value="">Mês</option></select>
+                <select id="tripYear" name="tripYear" aria-label="Ano"><option value="">Ano</option></select>
+              </div>
+              <small>Para viagem agora, pode deixar em branco.</small>
+            </div>
+            <div class="field">
+              <label>Horário</label>
+              <div class="row">
+                <select id="tripHour" name="tripHour" aria-label="Hora"><option value="">Hora</option></select>
+                <select id="tripMinute" name="tripMinute" aria-label="Minuto"><option value="">Minuto</option></select>
+              </div>
+              <small>Informe se quiser agendar.</small>
             </div>
 
             <div class="section-title" style="margin-top:8px;margin-bottom:0"><div><h3>Local de partida</h3><p class="muted">Busque pelo CEP, use localização ou preencha manualmente.</p></div><span class="step">2</span></div>
@@ -146,8 +159,16 @@
     const WHATSAPP_NUMBER = '5511998677221';
     const $ = (id) => document.getElementById(id);
     const today = new Date();
-    today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
-    $('tripDate').min = today.toISOString().slice(0, 10);
+    const currentYear = today.getFullYear();
+    function addOptions(id, values){
+      const el = $(id);
+      values.forEach(({value, label}) => el.insertAdjacentHTML('beforeend', `<option value="${value}">${label}</option>`));
+    }
+    addOptions('tripDay', Array.from({length:31}, (_,i)=>({value:String(i+1).padStart(2,'0'), label:String(i+1).padStart(2,'0')})));
+    addOptions('tripMonth', Array.from({length:12}, (_,i)=>({value:String(i+1).padStart(2,'0'), label:String(i+1).padStart(2,'0')})));
+    addOptions('tripYear', Array.from({length:3}, (_,i)=>({value:String(currentYear+i), label:String(currentYear+i)})));
+    addOptions('tripHour', Array.from({length:24}, (_,i)=>({value:String(i).padStart(2,'0'), label:String(i).padStart(2,'0')})));
+    addOptions('tripMinute', ['00','15','30','45'].map(v=>({value:v, label:v})));
     const notice = $('notice');
     const error = $('error');
     function show(el, msg){ el.textContent = msg; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'), 6500); }
@@ -196,10 +217,20 @@
       const number = $('number').value.trim();
       const comp = $('complement').value.trim();
       const cep = $('cep').value.trim();
-      const tripDate = $('tripDate').value;
-      const tripTime = $('tripTime').value;
-      const dt = tripDate
-        ? `${tripDate.split('-').reverse().join('/')} ${tripTime ? 'às ' + tripTime : '(horário a combinar)'}`
+      const day = $('tripDay').value;
+      const month = $('tripMonth').value;
+      const year = $('tripYear').value;
+      const hour = $('tripHour').value;
+      const minute = $('tripMinute').value;
+      const hasFullDate = day && month && year;
+      const hasPartialDate = day || month || year;
+      const hasTime = hour && minute;
+      if(hasPartialDate && !hasFullDate){
+        show(error, 'Selecione dia, mês e ano da viagem ou deixe a data em branco.');
+        return;
+      }
+      const dt = hasFullDate
+        ? `${day}/${month}/${year} ${hasTime ? 'às ' + hour + ':' + minute : '(horário a combinar)'}`
         : 'Agora / a combinar';
       const msg = `Olá, Cleber. Gostaria de solicitar uma viagem executiva.%0A%0A` +
         `Nome: ${encodeURIComponent($('name').value.trim())}%0A` +
