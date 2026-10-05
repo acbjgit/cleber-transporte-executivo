@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Cleber Transporte Executivo</title>
+  <meta name="description" content="Solicite sua viagem executiva com conforto, segurança e atendimento 24h." />
+  <meta name="theme-color" content="#0B0B0D" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Cleber Transporte" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <style>
+    :root{
+      --bg:#070708;
+      --panel:#101114;
+      --panel2:#17181D;
+      --ink:#FFFFFF;
+      --muted:#B8BBC2;
+      --line:rgba(255,255,255,.12);
+      --gold:#FFC928;
+      --gold2:#F59E0B;
+      --green:#25D366;
+      --danger:#F97316;
+      --radius:22px;
+      --shadow:0 20px 70px rgba(0,0,0,.45);
+      --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(circle at 20% 0%,rgba(255,201,40,.18),transparent 28%),radial-gradient(circle at 100% 12%,rgba(245,158,11,.14),transparent 32%),linear-gradient(180deg,#0B0B0D,#050506 58%,#000);color:var(--ink);font-family:var(--font);line-height:1.45;min-height:100vh;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.04),transparent 35%),repeating-linear-gradient(90deg,rgba(255,255,255,.018) 0 1px,transparent 1px 80px);opacity:.6}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1040px,100%);margin:0 auto;padding:0 18px}.safe{padding-bottom:env(safe-area-inset-bottom)}
+    .hero{position:relative;padding:34px 0 22px;overflow:hidden}.hero:after{content:"";position:absolute;right:-120px;top:40px;width:320px;height:320px;border-radius:50%;border:1px solid rgba(255,201,40,.15);box-shadow:inset 0 0 60px rgba(255,201,40,.06);z-index:-1}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#111;display:grid;place-items:center;font-weight:950;letter-spacing:-.08em;box-shadow:0 14px 34px rgba(255,201,40,.25)}.brand strong{display:block;font-size:1.05rem;letter-spacing:-.04em}.brand span{display:block;color:var(--muted);font-size:.82rem;margin-top:1px}.install{display:none;border:1px solid rgba(255,201,40,.28);background:rgba(255,201,40,.1);color:#FFECA6;border-radius:999px;padding:10px 12px;font-weight:800;font-size:.86rem}
+    .grid{display:grid;grid-template-columns:1fr .92fr;gap:22px;align-items:start}.card{background:linear-gradient(180deg,rgba(23,24,29,.9),rgba(12,13,16,.94));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.intro{padding:28px}.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,201,40,.11);border:1px solid rgba(255,201,40,.24);color:#FFEBA3;border-radius:999px;padding:8px 11px;font-size:.86rem;font-weight:850;margin-bottom:18px}.pulse{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 7px rgba(255,201,40,.12)}
+    h1,h2,h3{margin:0;line-height:1.04;letter-spacing:-.055em}h1{font-size:clamp(2.45rem,10vw,5.2rem);text-transform:uppercase}h1 .gold{color:var(--gold);display:block}h2{font-size:clamp(1.65rem,5.5vw,2.6rem);margin-bottom:10px}h3{font-size:1.1rem;letter-spacing:-.035em}.lead{font-size:1.12rem;color:#E8E8EA;margin:18px 0 22px}.muted{color:var(--muted)}
+    .benefits{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}.benefit{display:flex;gap:9px;align-items:center;padding:10px;border-radius:15px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);color:#ECEEF3;font-weight:720;font-size:.9rem}.check{color:var(--gold);font-weight:950}.cta-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}.btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;border:0;border-radius:17px;padding:15px 16px;font-weight:900;font-size:1rem;cursor:pointer;transition:.16s transform,.16s filter}.btn:active{transform:scale(.99)}.btn-primary{background:linear-gradient(135deg,var(--gold),#FFE68A);color:#111}.btn-whats{background:var(--green);color:#06150B}.btn-dark{background:rgba(255,255,255,.08);color:#fff;border:1px solid var(--line)}.btn-small{padding:12px 13px;border-radius:14px;font-size:.9rem}
+    .form-card{padding:20px;position:relative}.section-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}.step{width:34px;height:34px;border-radius:12px;background:rgba(255,201,40,.12);border:1px solid rgba(255,201,40,.22);color:var(--gold);display:grid;place-items:center;font-weight:950;flex:none}.form{display:grid;gap:14px}.field{display:grid;gap:7px}.field label{font-size:.9rem;font-weight:850;color:#F3F4F6}.field small{color:var(--muted)}input,select,textarea{width:100%;appearance:none;border:1px solid rgba(255,255,255,.12);background:#0A0B0E;color:#fff;border-radius:15px;padding:14px 14px;font:inherit;outline:none}input:focus,select:focus,textarea:focus{border-color:rgba(255,201,40,.7);box-shadow:0 0 0 4px rgba(255,201,40,.1)}textarea{min-height:92px;resize:vertical}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.help-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.notice{display:none;padding:12px 13px;border-radius:15px;background:rgba(255,201,40,.1);border:1px solid rgba(255,201,40,.2);color:#FFEBA3;font-size:.9rem}.notice.show{display:block}.error{display:none;padding:12px 13px;border-radius:15px;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.22);color:#FED7AA;font-size:.9rem}.error.show{display:block}
+    .services{padding:18px;margin-top:18px}.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}.service{padding:12px 8px;text-align:center;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08)}.service b{display:block;font-size:1.2rem}.service span{font-size:.78rem;color:var(--muted);font-weight:750}.footer{padding:22px 0 90px;color:var(--muted);font-size:.9rem}.sticky{position:fixed;left:12px;right:12px;bottom:12px;z-index:20;display:none}.sticky .btn{box-shadow:0 16px 44px rgba(0,0,0,.48),0 12px 26px rgba(37,211,102,.18)}
+    .vehicle{height:220px;border-radius:20px;background:linear-gradient(145deg,rgba(255,201,40,.18),rgba(255,255,255,.04)),#0C0D10;position:relative;overflow:hidden;margin-top:18px;border:1px solid rgba(255,255,255,.09)}.road{position:absolute;left:0;right:0;bottom:0;height:78px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.55)),repeating-linear-gradient(100deg,rgba(255,255,255,.12) 0 34px,transparent 34px 70px)}.car{position:absolute;left:8%;right:8%;bottom:46px;height:82px}.car:before{content:"";position:absolute;left:7%;right:7%;bottom:0;height:42px;border-radius:22px 30px 13px 13px;background:linear-gradient(180deg,#2A2D34,#08090B);border:1px solid rgba(255,255,255,.12);box-shadow:0 18px 30px rgba(0,0,0,.44)}.car:after{content:"";position:absolute;left:24%;right:24%;bottom:32px;height:42px;border-radius:44px 44px 0 0;background:linear-gradient(180deg,#434752,#111318);border:1px solid rgba(255,255,255,.12)}.wheel{position:absolute;bottom:-5px;width:34px;height:34px;border-radius:50%;background:#020203;border:7px solid #282B31}.wheel.l{left:19%}.wheel.r{right:19%}.shine{position:absolute;inset:0;background:linear-gradient(110deg,transparent 0 30%,rgba(255,201,40,.12) 44%,transparent 58%);animation:shine 4.8s infinite}@keyframes shine{0%,55%{transform:translateX(-90%)}100%{transform:translateX(100%)}}
+    @media(max-width:840px){.grid{grid-template-columns:1fr}.intro{padding:23px}.benefits,.cta-row,.row,.row-3,.help-actions{grid-template-columns:1fr}.service-grid{grid-template-columns:repeat(2,1fr)}.sticky{display:block}.top{align-items:flex-start}.install{font-size:.78rem;padding:9px 10px}body{padding-bottom:70px}}
+  </style>
+</head>
+<body class="safe">
+  <main class="hero">
+    <div class="wrap">
+      <div class="top">
+        <div class="brand">
+          <div class="logo">CT</div>
+          <div><strong>Cleber Transporte Executivo</strong><span>Atendimento 24h · São Paulo e região</span></div>
+        </div>
+        <button id="installBtn" class="install">Instalar app</button>
+      </div>
+
+      <div class="grid">
+        <section class="card intro">
+          <div class="badge"><span class="pulse"></span> Transporte executivo particular</div>
+          <h1><span>Conforto e</span><span class="gold">segurança</span></h1>
+          <p class="lead">Solicite sua viagem pelo mini-app. Informe partida, destino, quantidade de pessoas e envie tudo pronto para o WhatsApp.</p>
+          <div class="cta-row">
+            <a class="btn btn-whats" href="https://wa.me/5511998677221" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+            <a class="btn btn-primary" href="#pedido">Solicitar viagem</a>
+          </div>
+          <div class="benefits">
+            <div class="benefit"><span class="check">✓</span> Agende sua viagem</div>
+            <div class="benefit"><span class="check">✓</span> Aeroporto e empresas</div>
+            <div class="benefit"><span class="check">✓</span> Aceitamos cartão e Pix</div>
+            <div class="benefit"><span class="check">✓</span> Emitimos N.F. e recibos</div>
+            <div class="benefit"><span class="check">✓</span> Wi‑Fi</div>
+            <div class="benefit"><span class="check">✓</span> Atendimento 24h</div>
+          </div>
+          <div class="vehicle" aria-label="Ilustração de carro executivo"><div class="shine"></div><div class="car"><span class="wheel l"></span><span class="wheel r"></span></div><div class="road"></div></div>
+        </section>
+
+        <section class="card form-card" id="pedido">
+          <div class="section-title"><div><h2>Solicitar viagem</h2><p class="muted">Preencha os dados e envie direto para o Cleber.</p></div><span class="step">1</span></div>
+          <form class="form" id="tripForm">
+            <div class="row">
+              <div class="field"><label for="name">Seu nome</label><input id="name" name="name" placeholder="Ex: Maria Silva" autocomplete="name" required /></div>
+              <div class="field"><label for="phone">Telefone para contato</label><input id="phone" name="phone" placeholder="(11) 99999-9999" inputmode="tel" autocomplete="tel" required /></div>
+            </div>
+
+            <div class="row">
+              <div class="field"><label for="tripType">Tipo de viagem</label><select id="tripType" name="tripType"><option>Agora</option><option>Agendada</option><option>Aeroporto</option><option>Empresa</option><option>Particular</option></select></div>
+              <div class="field"><label for="passengers">Quantidade de pessoas</label><select id="passengers" name="passengers" required><option value="1">1 pessoa</option><option value="2">2 pessoas</option><option value="3">3 pessoas</option><option value="4">4 pessoas — limite do veículo</option></select></div>
+            </div>
+
+            <div class="row">
+              <div class="field"><label for="tripDate">Data da viagem</label><input id="tripDate" name="tripDate" type="date" /><small>Para viagem agora, pode deixar em branco.</small></div>
+              <div class="field"><label for="tripTime">Horário</label><input id="tripTime" name="tripTime" type="time" /><small>Informe se quiser agendar.</small></div>
+            </div>
+
+            <div class="section-title" style="margin-top:8px;margin-bottom:0"><div><h3>Local de partida</h3><p class="muted">Busque pelo CEP, use localização ou preencha manualmente.</p></div><span class="step">2</span></div>
+            <div class="help-actions">
+              <button class="btn btn-dark btn-small" type="button" id="locBtn">Usar minha localização</button>
+              <button class="btn btn-dark btn-small" type="button" id="clearOriginBtn">Limpar partida</button>
+            </div>
+            <div class="notice" id="notice"></div><div class="error" id="error"></div>
+
+            <div class="row-3">
+              <div class="field"><label for="cep">CEP</label><input id="cep" name="cep" placeholder="00000-000" inputmode="numeric" maxlength="9" /></div>
+              <div class="field"><label for="number">Número</label><input id="number" name="number" placeholder="123" /></div>
+              <div class="field"><label for="complement">Complemento</label><input id="complement" name="complement" placeholder="Apto, bloco, referência" /></div>
+            </div>
+            <div class="field"><label for="origin">Endereço de partida</label><input id="origin" name="origin" placeholder="Rua, bairro, cidade/UF" required /></div>
+
+            <div class="section-title" style="margin-top:8px;margin-bottom:0"><div><h3>Destino</h3><p class="muted">Digite o endereço, aeroporto, empresa ou ponto de referência.</p></div><span class="step">3</span></div>
+            <div class="field"><label for="destination">Destino da viagem</label><input id="destination" name="destination" placeholder="Ex: Aeroporto de Guarulhos" required /></div>
+
+            <div class="row">
+              <div class="field"><label for="payment">Forma de pagamento</label><select id="payment" name="payment"><option>A combinar</option><option>Pix</option><option>Cartão</option><option>Dinheiro</option></select></div>
+              <div class="field"><label for="luggage">Bagagem</label><select id="luggage" name="luggage"><option>Sem bagagem</option><option>1 mala</option><option>2 malas</option><option>3 malas ou mais</option></select></div>
+            </div>
+            <div class="field"><label for="notes">Observações</label><textarea id="notes" name="notes" placeholder="Ex: vou com criança, tenho mala grande, preciso de recibo..."></textarea></div>
+
+            <button class="btn btn-primary" type="submit">Enviar pedido no WhatsApp</button>
+            <p class="muted" style="font-size:.86rem;text-align:center">Ao tocar no botão, o WhatsApp abre com a mensagem pronta para envio.</p>
+          </form>
+        </section>
+      </div>
+
+      <section class="card services">
+        <h2>Serviços disponíveis</h2>
+        <div class="service-grid">
+          <div class="service"><b>✈️</b><span>Aeroportos</span></div>
+          <div class="service"><b>🏢</b><span>Empresas</span></div>
+          <div class="service"><b>🕘</b><span>24 horas</span></div>
+          <div class="service"><b>💳</b><span>Cartão e Pix</span></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="wrap footer">
+    <strong>Cleber Transporte Executivo</strong><br />
+    WhatsApp: (11) 99867-7221 · Instagram: @clebertransportesexecutivo<br />
+    Mini-app instalável para solicitação de viagens. Limite informado: até 4 passageiros.
+  </footer>
+
+  <div class="sticky"><a class="btn btn-whats" href="#pedido">Solicitar viagem agora</a></div>
+
+  <script>
+    const WHATSAPP_NUMBER = '5511998677221';
+    const $ = (id) => document.getElementById(id);
+    const today = new Date();
+    today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+    $('tripDate').min = today.toISOString().slice(0, 10);
+    const notice = $('notice');
+    const error = $('error');
+    function show(el, msg){ el.textContent = msg; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'), 6500); }
+    function onlyDigits(v){ return (v || '').replace(/\D/g,''); }
+
+    $('cep').addEventListener('input', (e)=>{
+      let v = onlyDigits(e.target.value).slice(0,8);
+      if(v.length > 5) v = v.slice(0,5) + '-' + v.slice(5);
+      e.target.value = v;
+      if(onlyDigits(v).length === 8) searchCep(onlyDigits(v));
+    });
+
+    async function searchCep(cep){
+      try{
+        show(notice, 'Buscando endereço pelo CEP...');
+        const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const data = await res.json();
+        if(data.erro) throw new Error('CEP não encontrado.');
+        const address = [data.logradouro, data.bairro, data.localidade && data.uf ? `${data.localidade}/${data.uf}` : ''].filter(Boolean).join(', ');
+        $('origin').value = address;
+        show(notice, 'Endereço encontrado. Complete número e complemento, se necessário.');
+      }catch(e){ show(error, 'Não consegui buscar esse CEP. Você pode preencher o endereço manualmente.'); }
+    }
+
+    $('locBtn').addEventListener('click', ()=>{
+      if(!navigator.geolocation){ show(error, 'Seu navegador não permite localização. Preencha o endereço manualmente.'); return; }
+      show(notice, 'Solicitando permissão de localização...');
+      navigator.geolocation.getCurrentPosition(async (pos)=>{
+        const {latitude, longitude} = pos.coords;
+        $('origin').value = `Localização atual: ${latitude.toFixed(6)}, ${longitude.toFixed(6)}`;
+        show(notice, 'Localização capturada. Se quiser, edite o endereço antes de enviar.');
+        try{
+          const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`);
+          const data = await res.json();
+          if(data && data.display_name){ $('origin').value = data.display_name; }
+        }catch(e){}
+      }, ()=> show(error, 'Não foi possível acessar sua localização. Verifique a permissão ou preencha manualmente.'), {enableHighAccuracy:true, timeout:12000, maximumAge:0});
+    });
+
+    $('clearOriginBtn').addEventListener('click', ()=>{ ['cep','number','complement','origin'].forEach(id => $(id).value = ''); });
+
+    $('tripForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const people = $('passengers').value;
+      const origin = $('origin').value.trim();
+      const number = $('number').value.trim();
+      const comp = $('complement').value.trim();
+      const cep = $('cep').value.trim();
+      const tripDate = $('tripDate').value;
+      const tripTime = $('tripTime').value;
+      const dt = tripDate
+        ? `${tripDate.split('-').reverse().join('/')} ${tripTime ? 'às ' + tripTime : '(horário a combinar)'}`
+        : 'Agora / a combinar';
+      const msg = `Olá, Cleber. Gostaria de solicitar uma viagem executiva.%0A%0A` +
+        `Nome: ${encodeURIComponent($('name').value.trim())}%0A` +
+        `Telefone: ${encodeURIComponent($('phone').value.trim())}%0A` +
+        `Quantidade de pessoas: ${people} ${people === '1' ? 'pessoa' : 'pessoas'}%0A` +
+        `Tipo de viagem: ${encodeURIComponent($('tripType').value)}%0A` +
+        `Data/Hora: ${encodeURIComponent(dt)}%0A%0A` +
+        `Partida: ${encodeURIComponent(origin)}%0A` +
+        `Número: ${encodeURIComponent(number || 'Não informado')}%0A` +
+        `Complemento: ${encodeURIComponent(comp || 'Não informado')}%0A` +
+        `CEP: ${encodeURIComponent(cep || 'Não informado')}%0A%0A` +
+        `Destino: ${encodeURIComponent($('destination').value.trim())}%0A` +
+        `Bagagem: ${encodeURIComponent($('luggage').value)}%0A` +
+        `Forma de pagamento: ${encodeURIComponent($('payment').value)}%0A` +
+        `Observações: ${encodeURIComponent($('notes').value.trim() || 'Nenhuma')}`;
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank', 'noopener');
+    });
+
+    if('serviceWorker' in navigator){ window.addEventListener('load', ()=>navigator.serviceWorker.register('./sw.js').catch(()=>{})); }
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e)=>{ e.preventDefault(); deferredPrompt = e; $('installBtn').style.display='inline-flex'; });
+    $('installBtn').addEventListener('click', async ()=>{ if(!deferredPrompt) return; deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt = null; $('installBtn').style.display='none'; });
+  </script>
+</body>
+</html>
